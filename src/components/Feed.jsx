@@ -9,11 +9,10 @@ const Feed = () => {
   const [videos, setVideos] = useState([])
 
   useEffect(() => {
-    /*fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
       .then((data) => {
-        console.log(data.data.items)
-      })*/
-    console.log(selectedCategory)
+        setVideos(data.data.items)
+      })
   }, [])
 
   return (
@@ -27,11 +26,11 @@ const Feed = () => {
         <Typography className="copyright" variant="body2" sx={{mt:1.5, color: "#fff"}}>Copyrights 2024</Typography>
       </Box>
 
-      <Box p={2} sx={{overflow: "auto", height: "30vh", flex: 2}}>
+      <Box p={2} sx={{overflow: "auto", height: "100vh", flex: 2}}>
         <Typography fontWeight="bold" mb={2} sx={{color: "white"}}>
           {selectedCategory} <span style={{color: "#F31503"}}>Videos</span>
         </Typography>
-        <Videos videos={[]} />
+        <Videos videos={videos} />
       </Box>
       
     </Stack>
