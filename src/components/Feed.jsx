@@ -13,7 +13,7 @@ const Feed = () => {
       .then((data) => {
         setVideos(data.data.items)
       })
-  }, [])
+  }, [selectedCategory])
 
   return (
     <Stack
